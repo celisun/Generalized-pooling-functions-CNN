@@ -4,6 +4,11 @@ import numpy as np
 import tensorflow as tf
 import mlp.data_providers as data_providers
 
+from image_processing import *
+
+
+
+
 os.environ['MLP_DATA_DIR'] = '/disk/scratch/mlp/data'
 os.environ['OUTPUT_DIR'] = '$HOME/experiments'
 
