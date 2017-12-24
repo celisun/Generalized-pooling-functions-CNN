@@ -91,7 +91,6 @@ def locally_connected2d(x, size = 2):
 
 
 
-
 #design for gated pooling, learn a param "per layer" option
 def all_channel_connected2d(x, size=2):
     """
