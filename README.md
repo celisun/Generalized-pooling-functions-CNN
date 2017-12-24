@@ -1,0 +1,1 @@
+# Generalized-Pooling-Functions-Mixed-and-Gated-in-Convolutional-Neural-Networks-
