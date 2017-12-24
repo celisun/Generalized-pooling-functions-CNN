@@ -1,4 +1,5 @@
-
+import tensorflow as tf
+ 
 def image_rot90(images):
     """
     One technique of data augmentation
