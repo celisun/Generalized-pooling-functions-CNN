@@ -1,3 +1,6 @@
+import tensorflow as tf
+ 
+
 def image_cropping(images, central_fraction=0.75):
     """
     One technique of data augmentation, applies to input tensor,
