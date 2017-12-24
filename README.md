@@ -1,1 +1,1 @@
-# Generalized-Pooling-Functions-Mixed-and-Gated-in-Convolutional-Neural-Networks-
+# Generalized Pooling Functions: Mixed&Gated Pooling in Convolutional Neural Networks
