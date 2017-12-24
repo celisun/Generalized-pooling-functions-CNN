@@ -1,3 +1,4 @@
+import tensorflow as tf
 
 def image_contrast(images, lower=0.2, upper=1.2):
     """
