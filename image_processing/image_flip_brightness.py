@@ -1,4 +1,5 @@
-
+import tensorflow as tf
+import numpy as np
 def image_flip_brightness(images, max_delta=63/255.0):
     """
     One technique of data augmentation
