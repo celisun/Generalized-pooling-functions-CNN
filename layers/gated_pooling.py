@@ -1,4 +1,3 @@
-
 import tensorflow as tf
 
 
@@ -58,7 +57,6 @@ def locally_connected2d(x, size = 2):
     returns:
         4D tensor with shape: [samples, new_rows, new_cols, nb_filter]
         `rows` and `cols` values might have changed due to padding.
-
     """
 
     xs = []
