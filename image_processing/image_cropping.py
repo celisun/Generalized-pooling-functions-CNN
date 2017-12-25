@@ -11,8 +11,8 @@ def image_cropping(images, central_fraction=0.75):
         images: input tensor of shape [batch_size, 3072]
       return:
         distorted_image: tensor of the same shape as input
-
     """
+  
     images = tf.reshape(images, [-1, 32, 32, 3])
     distorted_image = tf.map_fn(lambda img: tf.image.central_crop(img, central_fraction), images)
     distorted_image = tf.image.resize_images(distorted_image, [32, 32])
