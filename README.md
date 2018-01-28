@@ -1,4 +1,4 @@
-# Generalized Pooling Functions: Mixed&Gated Pooling in Convolutional Neural Networks
+# Generalized Pooling Functions: mixed and gated pooling in CNN
 
 My experiments here are based on the work done by Chen Lee, P.W.Gallagher, Z.Tu in their “Gneralizing Pooling Functions in Convolutional Neural Networks: Mixed, Gated and Tree”, 2015.
 
