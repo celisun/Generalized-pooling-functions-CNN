@@ -4,6 +4,9 @@ Experiments are implementing and are based on Chen Lee, P.W.Gallagher, Z.Tu, Gne
 
 Experiment results again show the advantages obtained from these innovate pooling functions (mixed and gated) in CNN-like architectures in object recognition.
 
+### Mixed / Gated Operation
+<img src=https://raw.githubusercontent.com/celisun/Generalized-Pooling-Functions-Mixed-and-Gated-in-Convolutional-Neural-Networks/master/graph.png width="650">
+
 ### Empirical Results
 <img src=https://raw.githubusercontent.com/celisun/Generalized-Pooling-Functions-Mixed-and-Gated-in-Convolutional-Neural-Networks/master/table-comparison.png width="650">
 
