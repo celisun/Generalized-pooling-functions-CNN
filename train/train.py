@@ -13,7 +13,6 @@ from layers import *
 os.environ['MLP_DATA_DIR'] = '/disk/scratch/mlp/data'
 os.environ['OUTPUT_DIR'] = '$HOME/experiments'
 
-
 # check necessary environment variables are defined
 assert 'MLP_DATA_DIR' in os.environ, (
     'An environment variable MLP_DATA_DIR must be set to the path containing'
@@ -22,8 +21,6 @@ assert 'OUTPUT_DIR' in os.environ, (
     'An environment variable OUTPUT_DIR must be set to the path to write'
     ' output to before running script.')
 
-
-
 # load data
 train_data = data_providers.CIFAR10DataProvider('train', batch_size=100)
 valid_data = data_providers.CIFAR10DataProvider('valid', batch_size=100)
@@ -31,16 +28,10 @@ valid_inputs = valid_data.inputs
 valid_targets = valid_data.to_one_of_k(valid_data.targets)
 
 
-
-
-
-
-
 # Convolutional layer with non-linearity
 def conv2d(x, w, b, activation=tf.nn.relu):
     conv = tf.nn.conv2d(x, w, strides=[1,1,1,1], padding='SAME')
     return activation(tf.nn.bias_add(conv, b))
-
 
 # fully connected layer with non-linearity
 def fc(x, w, b, activation=tf.nn.relu):
@@ -48,9 +39,6 @@ def fc(x, w, b, activation=tf.nn.relu):
     if(activation != 'None'):
         y = activation(y)
     return y
-
-
-
 
 
 with tf.name_scope('data'):
@@ -116,8 +104,6 @@ with tf.name_scope('model'):
     fc3= fc(fc2,  weights['W_fc3'], biases['b_fc3'], activation = 'None')
     outputs = fc3
 
-
-
 # Anneal to learning rate
 global_step= tf.Variable(0, trainable=False)
 boundaries = [20, 40, 60, 80]
@@ -131,11 +117,6 @@ weight_decay = tf.nn.l2_loss(weights['W_conv1'])+tf.nn.l2_loss(weights['W_conv2'
                + tf.nn.l2_loss(weights['W_conv4'])+tf.nn.l2_loss(weights['W_fc1'])+tf.nn.l2_loss(weights['W_fc2'])+\
                tf.nn.l2_loss(weights['W_fc3'])
 
-
-
-
-
-
 with tf.name_scope('error'):
     error = tf.reduce_mean(
         tf.nn.softmax_cross_entropy_with_logits(outputs, targets) + 0.001*weight_decay)
@@ -147,10 +128,7 @@ with tf.name_scope('train'):
     train_step = tf.train.MomentumOptimizer(learning_rate=0.01, momentum=0.9).minimize(error, global_step=global_step)
     #train_step = tf.train.RMSPropOptimizer(learning_rate=0.001).minimize(error)
 
-
-
 # ---------------------------------------------------------------------------------
-
 
 # add summary operations
 tf.summary.scalar('error', error)
@@ -168,18 +146,12 @@ train_writer = tf.summary.FileWriter(os.path.join(exp_dir, 'train-summaries'))
 valid_writer = tf.summary.FileWriter(os.path.join(exp_dir, 'valid-summaries'))
 saver = tf.train.Saver()
 
-
 # create arrays to store run train / valid set stats
 num_epoch = 75
 train_accuracy = np.zeros(num_epoch)
 train_error = np.zeros(num_epoch)
 valid_accuracy = np.zeros(num_epoch)
 valid_error = np.zeros(num_epoch)
-
-
-
-
-
 
 # create session and run training loop
 #sess = tf.Session()
@@ -217,7 +189,6 @@ for e in range(num_epoch):
           .format(e + 1, train_error[e], train_accuracy[e]))
     print('          err(valid)={0:.4f} acc(valid)={1:.4f}'
           .format(valid_error[e], valid_accuracy[e]))
-
 
 # close writer and session objects
 train_writer.close()
